@@ -91,8 +91,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: unix
-      run: sudo apt install cmake gcc g++ jack
-
+      run: |
+        sudo apt update
+        sudo apt install cmake gcc g++ jack -y
+        sudo apt full-upgrade -y
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
