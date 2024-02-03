@@ -47,13 +47,6 @@ jobs:
       with:
           packages: cmake gcc-g++ wget jackd jackd1 jackd2 gpp libjack libusb-1.0 libasound2
 
-
-    - name: cygport?
-      run: |
-        apt-cyg update
-        apt-cyg install jackd jackd1 jackd2 libjack -y
-        apt-cyg full-upgrade -y
-
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
@@ -95,7 +88,7 @@ jobs:
     - name: unix
       run: |
         sudo apt update
-        sudo apt install cmake gcc g++ jackd* libasound* libjack* libusb* -y
+        sudo apt install cmake gcc g++ *jack* libasound* libusb* -y
         sudo apt full-upgrade -y
 
     - name: Set reusable strings
